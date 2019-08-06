@@ -1,2 +1,2 @@
 # Banka-React
-Converting the Banka application front to reactJs
+Converting the Banka application frontend to reactJs
