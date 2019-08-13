@@ -9,7 +9,6 @@ describe('App', () => {
   beforeEach(() => {
     app = shallow(<App />);
   });
-
   it('renders successfully', () => {
     expect(app).toBeDefined();
   });
@@ -18,7 +17,10 @@ describe('App', () => {
     expect(app.find('div').length).toBe(1);
   });
 
-  it('renders a h1 component', () => {
-    expect(app.find('h1').length).toBe(1);
+  it('renders a Switch component', () => {
+    expect(app.find('Switch').length).toBe(1);
+  });
+  it('renders a Route component', () => {
+    expect(app.find('Route').length).toBe(1);
   });
 });
