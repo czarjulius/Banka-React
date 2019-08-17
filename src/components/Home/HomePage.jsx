@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import '../Home/home.scss';
@@ -14,9 +14,9 @@ const Homepage = () => (
           Banka is a light-weight core banking application that powers banking operations 
           like account creation, customer deposit and withdrawals.
         </h3>  
-        <a href="./login.html">
+        <NavLink to="./login">
           <input type="button" value="Get started" className="btn getStarted" />
-        </a>
+        </NavLink>
       </div>
     </div>
     <div className="services">

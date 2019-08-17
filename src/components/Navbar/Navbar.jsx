@@ -12,7 +12,7 @@ class NavBar extends Component {
             <span className="navbar-toggle" id="js-navbar-toggle">
                 <i className="fa fa-bars"> </i>
             </span>
-            <a href="index.html" className="logo"><b>B</b>anka</a>
+            <NavLink to="/" className="logo"><b>B</b>anka</NavLink>
             <ul className="main-nav" id="js-menu">
               <li>
                   <NavLink to="./signup" className="nav-links">Sign Up</NavLink>
