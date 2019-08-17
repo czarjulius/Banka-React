@@ -4,6 +4,7 @@ import Homepage from '../components/Home/HomePage';
 import LoginPage from '../components/Login/LoginPage';
 import SignupPage from '../components/Signup/SignupPage';
 import ProfilePage from '../components/Profile/ProfilePage';
+import CreateAccountPage from '../components/Bank/CreateAccount/CreateAccountPage';
 
 /**
  * App component, renders all the other components.
@@ -15,6 +16,7 @@ const App = () => (
       <Route path="/login" component={LoginPage} />
       <Route path="/signup" component={SignupPage} />
       <Route path="/profile" component={ProfilePage} />
+      <Route path="/create" component={CreateAccountPage} />
     </Switch>
   </div>
 );

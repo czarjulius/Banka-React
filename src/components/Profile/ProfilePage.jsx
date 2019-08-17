@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Dashboard from '../Dashboard/DashboardPage';
 import './profile.scss';
 
-const Profilepage = () => (
+const ProfilePage = () => (
   <Dashboard header_title="User Dashboard">
     <div className="dasboard-body">
       <div className="profile-container">
@@ -100,4 +100,4 @@ const Profilepage = () => (
   </Dashboard>
 );
 
-export default Profilepage;
+export default ProfilePage;
