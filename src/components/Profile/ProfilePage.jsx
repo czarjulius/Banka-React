@@ -16,7 +16,7 @@ const ProfilePage = () => (
           <div className="profile-detail">
             <table>
               <tr>
-                <caption colspan="2">Personal Details</caption>
+                <caption colSpan="2">Personal Details</caption>
               </tr>
               <tr>
                 <th> Name:</th>
@@ -61,7 +61,7 @@ const ProfilePage = () => (
         <div className="account-detail-container">
           <table>
             <tr>
-              <caption colspan="2">Account Details</caption>
+              <caption colSpan="2">Account Details</caption>
             </tr>
             <tr>
               <th>Acc. Number:</th>
