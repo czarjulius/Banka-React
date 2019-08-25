@@ -40,13 +40,9 @@ submitHandler = () => {
   newUser(user).then((status) => {
     if (status === 201) {
       this.props.history.push('/login');
-      // this.setState({
-      //   isLoading: false,
-      // });
+      
     } else {
-      // this.setState({
-      //   isLoading: false,
-      // });
+      return false;
     }
   });
 };
