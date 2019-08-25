@@ -18,7 +18,7 @@ export const createUserSuccess = payload => ({
 
 export const registerUser = newUserDetails => (dispatch) => {
   dispatch(createUserStart());
-  return axiosInstance().post('/auth/signup', newUserDetails).then(({ data, status }) => {
+  return axiosInstance.post('/auth/signup', newUserDetails).then(({ data, status }) => {
     dispatch(createUserSuccess(data.data));
     return status;
   }).catch((err) => {

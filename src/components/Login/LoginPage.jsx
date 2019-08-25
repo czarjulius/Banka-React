@@ -34,7 +34,7 @@ submitHandler = () => {
 
   newUser(user).then((status) => {
     if (status === 200) {
-      this.props.history.push('/profile');
+      this.props.history.push('/create');
     } else {
       return false;
     }
@@ -43,7 +43,6 @@ submitHandler = () => {
 
   render() {
 
-    // const { isLoading } = this.state;
     const { errors, isLoading } = this.props;
     if (isLoading) {
       return (
