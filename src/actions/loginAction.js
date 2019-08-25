@@ -19,16 +19,17 @@ export const loginUserSuccess = payload => ({
 
 export const loginUser = newUserDetails => (dispatch) => {
   dispatch(loginUserStart());
-  return axiosInstance().post('/auth/signin', newUserDetails).then(({ data, status }) => {
+  return axiosInstance
+    .post('/auth/signin', newUserDetails)
+    .then(({ data, status }) => {
     dispatch(loginUserSuccess(data.data));
     const { token } = data.data;
-
     localStorage.setItem('token', token);
-
+    localStorage.setItem('user', JSON.stringify(data.data));
     setAuthToken(token);
-
     return status;
   }).catch((err) => {
-    dispatch(loginUserFailed({ message: err.response.data.error}));
+    console.log(err)
+    dispatch(loginUserFailed({ message: err.response.data.error }));
   });
 };

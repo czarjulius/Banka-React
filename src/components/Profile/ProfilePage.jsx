@@ -58,43 +58,6 @@ const ProfilePage = () => (
             </table>
           </div>
         </div>
-        <div className="account-detail-container">
-          <table>
-            <tr>
-              <caption colSpan="2">Account Details</caption>
-            </tr>
-            <tr>
-              <th>Acc. Number:</th>
-              <td>
-                <i className="fa fa-none" />3056432121
-              </td>
-            </tr>
-            <tr>
-              <th> Type:</th>
-              <td>
-                <i className="fa fa-none" />Savings
-              </td>
-            </tr>
-            <tr>
-              <th>Status:</th>
-              <td>
-                <i className="fa fa-check" /> Active
-              </td>
-            </tr>
-            <tr>
-              <th>Date Created:</th>
-              <td>
-                <i className="fa fa-calendar-o" /> 03-03-2013
-              </td>
-            </tr>
-            <tr>
-              <th>Balance:</th>
-              <td>
-                <i className="fa fa-money" /> 105,000
-              </td>
-            </tr>
-          </table>
-        </div>
       </div>
     </div>
   </Dashboard>

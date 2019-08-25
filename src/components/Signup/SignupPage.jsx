@@ -33,9 +33,6 @@ submitHandler = () => {
   const { form } = this.state;
   const user = { ...form };
   const { newUser } = this.props;
-  // this.setState({
-  //   isLoading: true,
-  // });
 
   newUser(user).then((status) => {
     if (status === 201) {
@@ -49,7 +46,6 @@ submitHandler = () => {
 
   render() {
 
-    // const { isLoading } = this.state;
     const { errors, isLoading } = this.props;
     if (isLoading) {
       return (

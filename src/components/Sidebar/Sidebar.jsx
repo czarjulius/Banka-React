@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
-
 class Sidebar extends Component {
+
+  logout(){
+    localStorage.removeItem('token');
+}
 
   render() {
     return (
@@ -19,9 +22,10 @@ class Sidebar extends Component {
                     <p className="profile-name">Julius Ngwu</p> 
                 </NavLink>
               </li>
+          
               <li>
-                <NavLink className="s-sidebar__nav-link active" to="/profile">
-                  <i className="fa fa-table"></i><em>Account Details</em>
+                <NavLink className="s-sidebar__nav-link" to="profile">
+                  <i className="fa fa-folder-open-o"></i><em>View Profile</em>
                 </NavLink>
               </li>
               <li>
@@ -30,7 +34,8 @@ class Sidebar extends Component {
                 </NavLink>
               </li>
               
-              <li>
+              <li onClick={this.logout}>
+
                   <NavLink className="s-sidebar__nav-link" to="./login">
                     <i className="fa fa-sign-out"></i><em>Log out</em>
                   </NavLink>
