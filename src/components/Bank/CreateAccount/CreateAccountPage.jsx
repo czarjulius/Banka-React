@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { toastr } from 'react-redux-toastr';
 import Dashboard from '../../Dashboard/DashboardPage';
 import './createAccount.scss';
 
@@ -40,8 +41,10 @@ submitHandler = () => {
 
   newAccount(account).then((status) => {
     if (status === 201) {
+      toastr.success('Account Created Successfully');
       this.props.history.push('/profile');
     } else {
+      toastr.error('Oops something went wrong');
       return false;
     }
   });

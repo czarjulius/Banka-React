@@ -36,9 +36,10 @@ submitHandler = () => {
 
   newUser(user).then((status) => {
     if (status === 201) {
+      toastr.success('Registration  Successful');
       this.props.history.push('/login');
-      
     } else {
+      toastr.error('Oops something went wrong');
       return false;
     }
   });
