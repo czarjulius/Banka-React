@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import { toastr } from 'react-redux-toastr';
+import { toastr } from 'react-redux-toastr';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import '../../index.scss';
@@ -35,10 +35,10 @@ submitHandler = () => {
 
   newUser(user).then((status) => {
     if (status === 200) {
-      // toastr.success('Login Successful');
+      toastr.success('Login Successful');
       this.props.history.push('/profile');
     } else {
-      // toastr.error('Oops something went wrong');
+      toastr.error('Oops something went wrong');
       return false;
     }
   });

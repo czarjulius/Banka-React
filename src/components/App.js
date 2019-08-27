@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-// import ReduxToastr from 'react-redux-toastr';
+import ReduxToastr from 'react-redux-toastr';
 import Homepage from '../components/Home/HomePage';
 import LoginPage from '../components/Login/LoginPage';
 import SignupPage from '../components/Signup/SignupPage';
@@ -12,16 +12,16 @@ import CreateAccountPage from '../components/Bank/CreateAccount/CreateAccountPag
  */
 const App = () => (
   <React.Fragment>
-  {/* <ReduxToastr
+  <ReduxToastr
     timeOut={4000}
     newestOnTop={false}
     preventDuplicates
-    position="top-right"
+    position="top-center"
     transitionIn="fadeIn"
     transitionOut="fadeOut"
     progressBar
     closeOnToastrClick
-  /> */}
+  />
     <Switch>
       <Route exact path="/" component={Homepage} />
       <Route path="/login" component={LoginPage} />
