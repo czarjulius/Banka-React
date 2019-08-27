@@ -64,7 +64,7 @@ submitHandler = () => {
           <form>
               <div className="form-header">
                   <h4>Register </h4>
-                  <p id="registerMessage"></p>
+                  <p id="registerMessage">{errors && errors.message}</p>
                   <p id="registerSuccess"></p>
                   <img src="./image/spinner.gif" id="spinner" />
               </div>
@@ -98,18 +98,13 @@ submitHandler = () => {
               <input type="password" id="password" name="password" required onChange={this.onInputChange} />
               <p id="passwordError" className="alert-class"></p>
             </div>
-            <div className="input"> 
-              <label htmlFor="confirmpassword" >Confirm Password </label>
-              <input type="password" id="confirmpassword" required onChange={this.onInputChange} />
-              <p id="confirmpassword-alert" className="alert-class"></p>
-            </div>
               <p className="sign-up"> 
                     <input type="button" id="registerUser" value="Register" className="btn" onClick={this.submitHandler}/>            
                 </p>
           </form>
           <div className="form-footer">
             <span id="no_account">Already have an account ?</span>
-            <a href="login.html"> Login </a>
+            <Link to="/login" className="redirect"> Login </Link>
           </div>
         </div>
       </div>

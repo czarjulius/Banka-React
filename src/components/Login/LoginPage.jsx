@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+// import { toastr } from 'react-redux-toastr';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import '../../index.scss';
@@ -34,8 +35,10 @@ submitHandler = () => {
 
   newUser(user).then((status) => {
     if (status === 200) {
-      this.props.history.push('/create');
+      // toastr.success('Login Successful');
+      this.props.history.push('/profile');
     } else {
+      // toastr.error('Oops something went wrong');
       return false;
     }
   });
@@ -61,18 +64,16 @@ submitHandler = () => {
         <form>
             <div className="form-header">
                 <h4>Login</h4>
-                <p id="loginMessage"></p>
+                <p id="loginMessage">{errors && errors.message}</p>
                 <p id="loginSuccess"></p>
             </div>
           <div className="input"> 
             <label htmlFor="email"> Email </label>
             <input type="email" id="email" name="email" required onChange={this.onInputChange} /> 
-            <p id="emailError" className="alert-class"></p>
           </div>
           <div className="input"> 
             <label htmlFor="password" > Password </label>
             <input type="password" id="password" name="password" required onChange={this.onInputChange} />
-            <p id="passwordError" className="alert-class"></p>
           </div>
             <p className="sign-up"> 
                 <input type="button" id="loginUser"  value="Login" className="btn" onClick={this.submitHandler} />
@@ -80,7 +81,7 @@ submitHandler = () => {
         </form>
         <div className="form-footer">
           <span id="no_account">Don't have an account ?</span>
-          <a href="signup.html"> Register Now </a>
+          <Link to="signup" className="redirect"> Register Now </Link>
         </div>
       </div>
     </div>
@@ -91,8 +92,8 @@ submitHandler = () => {
 }
 
 const mapStateToProps = state => ({
-  isLoading: state.signupReducer.isLoading,
-  errors: state.signupReducer.errors,
+  isLoading: state.loginReducer.isLoading,
+  errors: state.loginReducer.errors,
   articles: state.signupReducer,
 });
 const mapDispatchToProps = dispatch => ({

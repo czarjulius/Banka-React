@@ -1,9 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import Dashboard from '../Dashboard/DashboardPage';
 import './profile.scss';
 
-const ProfilePage = () => (
+class ProfilePage extends Component {
+  state = {
+    user: {
+      firstName: '',
+      lastName: '',
+      phoneNumber: '',
+      email: '',
+    },
+  }
+
+  componentDidMount = () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      this.props.history.push('/login', {});
+    }
+    const user = localStorage.getItem('user');
+    this.setState({ user: JSON.parse(user) })
+  };
+
+  logout(){
+    localStorage.removeItem('token');
+}
+
+  render() {
+    const {firstName, lastName, phoneNumber, email} = this.state.user
+    return (
   <Dashboard header_title="User Dashboard">
     <div className="dasboard-body">
       <div className="profile-container">
@@ -21,38 +46,37 @@ const ProfilePage = () => (
               <tr>
                 <th> Name:</th>
                 <td>
-                  <i className="fa fa-user" /> Julius Ngwu
+                  <i className="fa fa-user" /> {firstName} {lastName}
                 </td>
               </tr>
               <tr>
                 <th>Phone Number:</th>
                 <td>
-                  <i className="fa fa-phone" /> 08058922347
+                  <i className="fa fa-phone" /> {phoneNumber}
                 </td>
               </tr>
               <tr>
                 <th>Address:</th>
                 <td>
-                  <i className="fa fa-map-marker" /> No.2B Babalola Garden
-                  off-freedomway ikate Lekki
+                  <i className="fa fa-map-marker" /> Not Available
                 </td>
               </tr>
               <tr>
                 <th>Date of Birth:</th>
                 <td>
-                  <i className="fa fa-calendar-o" /> 03-03-2003
+                  <i className="fa fa-calendar-o" /> Not Available
                 </td>
               </tr>
               <tr>
                 <th>Email:</th>
                 <td>
-                  <i className="fa fa-envelope" /> juliusczar.jc@gmail.com
+                  <i className="fa fa-envelope" /> {email}
                 </td>
               </tr>
               <tr>
                 <th>Next of kin:</th>
                 <td>
-                  <i className="fa fa-child" /> Micheal Ngwu
+                  <i className="fa fa-child" /> Not Available
                 </td>
               </tr>
             </table>
@@ -61,6 +85,9 @@ const ProfilePage = () => (
       </div>
     </div>
   </Dashboard>
+
 );
+}
+}
 
 export default ProfilePage;

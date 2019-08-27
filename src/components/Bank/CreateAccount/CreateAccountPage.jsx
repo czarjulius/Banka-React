@@ -35,7 +35,6 @@ onInputChange = ({ target: { name, value } }) => {
 
 submitHandler = () => {
   const { form } = this.state;
-  console.log(form, 'ffffffffff')
   const account = { ...form };
   const { newAccount } = this.props;
 
@@ -65,19 +64,19 @@ submitHandler = () => {
         <div className="transactions">
           <form>
             <div className="form-header">
-              <p id="registerMessage" />
+              <p id="registerMessage" >{errors && errors.message}</p>
               <p id="registerSuccess" />
             </div>
             <div className="input">
-              <select name="type" type="text" className="form-control" onChange={this.onInputChange} >
+              <select name="type" type="text" className="form-control accountInput" onChange={this.onInputChange} >
                 <option value="">Select type</option>
                 <option value="current">Current</option>
                 <br />
                 <option value="savings">Savings</option>
                 <br / >
               </select>
-              <input type="text" placeholder="address" name="address" onChange={this.onInputChange} />
-              <input type="text" placeholder="Next of kin mobile number" name="nextOfKin" onChange={this.onInputChange} />
+              <input type="text" placeholder="address" name="address" className="accountInput" onChange={this.onInputChange} />
+              <input type="text" placeholder="Next of kin mobile number" className="accountInput"  name="nextOfKin" onChange={this.onInputChange} />
             </div>
             <p className="sign-up">
               <input type="button" value="Create" className="btn" onClick={this.submitHandler} />
