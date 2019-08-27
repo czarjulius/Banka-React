@@ -66,7 +66,6 @@ submitHandler = () => {
                   <h4>Register </h4>
                   <p id="registerMessage">{errors && errors.message}</p>
                   <p id="registerSuccess"></p>
-                  <img src="./image/spinner.gif" id="spinner" />
               </div>
             <div className="input"> 
             {errors && errors.firstName && ( <span className="red"> {errors.firstName} </span>)}

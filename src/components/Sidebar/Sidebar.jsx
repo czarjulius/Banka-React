@@ -30,7 +30,7 @@ class Sidebar extends Component {
         <nav className="s-sidebar__nav">
             <ul>
               <li>
-                <NavLink  to="/profile">
+                <NavLink  to="/profile" className="userprofile">
                       <img className="profile-img" src={require("../../assets/image/user.png")} alt="" />
                     <p className="profile-name">{firstName} {lastName}</p> 
                 </NavLink>

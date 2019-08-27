@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Dashboard from '../Dashboard/DashboardPage';
 import './profile.scss';
+import { fetchUserAccounts } from '../../actions/fetchUserAccountsAction';
+
 
 class ProfilePage extends Component {
   state = {
@@ -18,16 +21,57 @@ class ProfilePage extends Component {
     if (!token) {
       this.props.history.push('/login', {});
     }
-    const user = localStorage.getItem('user');
-    this.setState({ user: JSON.parse(user) })
+    const user = JSON.parse(localStorage.getItem('user'));
+    this.setState({ user })
+    const { email } = user;
+
+    const { fetchAccounts } = this.props;
+    fetchAccounts(email);
   };
 
   logout(){
     localStorage.removeItem('token');
 }
 
+renderAccount(account) {
+  return (
+    <div className="account-detail-container" key={account.accountnumber}>
+    <table>
+        <caption colSpan="2">{account.accountnumber} Details</caption>
+     <tbody>
+      <tr>
+        <th>Acc. Number:</th>
+        <td><i className="fa fa-none"></i>{account.accountnumber}</td>
+      </tr>
+      <tr>
+        <th> Type:</th>
+        <td><i className="fa fa-none"></i>{account.type}</td>
+      </tr>
+      <tr>
+        <th>Status:</th>
+        <td><i className="fa fa-check"></i> {account.status} </td>
+      </tr>
+      <tr>
+        <th>Date Created:</th>
+        <td><i className="fa fa-calendar-o"></i> {account.createdon}</td>
+      </tr>
+      <tr>
+        <th>Balance:</th>
+        <td><i className="fa fa-money"></i> {account.balance}</td>
+      </tr>
+      </tbody>
+
+    </table>
+  </div>
+  )
+}
+
   render() {
-    const {firstName, lastName, phoneNumber, email} = this.state.user
+    const { user: { firstName, lastName, phoneNumber, email } } = this.state
+    const { userAccounts: { isLoading, accounts } } = this.props;
+    // if(isLoading) {
+    //   return <div>Loaiding...</div>
+    // }
     return (
   <Dashboard header_title="User Dashboard">
     <div className="dasboard-body">
@@ -40,9 +84,8 @@ class ProfilePage extends Component {
           </div>
           <div className="profile-detail">
             <table>
-              <tr>
                 <caption colSpan="2">Personal Details</caption>
-              </tr>
+              <tbody>
               <tr>
                 <th> Name:</th>
                 <td>
@@ -79,10 +122,14 @@ class ProfilePage extends Component {
                   <i className="fa fa-child" /> Not Available
                 </td>
               </tr>
+              </tbody>
             </table>
           </div>
         </div>
+        
+        {accounts.map(account => this.renderAccount(account))}
       </div>
+     
     </div>
   </Dashboard>
 
@@ -90,4 +137,15 @@ class ProfilePage extends Component {
 }
 }
 
-export default ProfilePage;
+const mapStateToProps = state => ({
+  errors: state.accountReducer.errors,
+  userAccounts: state.fetchAccountsReducer,
+});
+const mapDispatchToProps = dispatch => ({
+  fetchAccounts: (email) => dispatch(fetchUserAccounts(email)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ProfilePage);

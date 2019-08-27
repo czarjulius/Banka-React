@@ -1,10 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Dashboard from '../../Dashboard/DashboardPage';
 import './createAccount.scss';
 
 import { openAccount } from '../../../actions/openAccountAction';
+
 import Loader from '../../Loader/index';
 
 export class CreateAccountPage extends React.Component {
@@ -71,9 +71,7 @@ submitHandler = () => {
               <select name="type" type="text" className="form-control accountInput" onChange={this.onInputChange} >
                 <option value="">Select type</option>
                 <option value="current">Current</option>
-                <br />
                 <option value="savings">Savings</option>
-                <br / >
               </select>
               <input type="text" placeholder="address" name="address" className="accountInput" onChange={this.onInputChange} />
               <input type="text" placeholder="Next of kin mobile number" className="accountInput"  name="nextOfKin" onChange={this.onInputChange} />
@@ -93,7 +91,7 @@ submitHandler = () => {
 const mapStateToProps = state => ({
   isLoading: state.accountReducer.isLoading,
   errors: state.accountReducer.errors,
-  articles: state.accountReducer,
+  accounts: state.accountReducer,
 });
 const mapDispatchToProps = dispatch => ({
   newAccount: data => dispatch(openAccount(data)),

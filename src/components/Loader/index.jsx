@@ -37,7 +37,7 @@ export default class Index extends React.Component {
         <div className="loader">
           <Loader
             type="Circles"
-            color="#2E99D6"
+            color="rgb(3, 26, 54)"
             height={100}
             width={100}
           />
