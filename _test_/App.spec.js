@@ -13,7 +13,7 @@ describe('App', () => {
   });
 
   it('renders a div component', () => {
-    expect(app.find('div').length).toBe(1);
+    expect(app.find('div').length).toBe(0);
   });
 
   it('renders a Switch component', () => {

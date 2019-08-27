@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+.redirect {
+font-weight: bolder;
+color: rgb(3, 26, 54);
+text-decoration: underline;
+}
+
 a:hover {
   font-size: 12px;
   transition: 0.5s;
@@ -48,6 +54,8 @@ font-size: 25px;
 margin-top: 10px;
 margin-left: 20px;
 font-family: Jokerman;
+background-color: rgb(3, 26, 54)!important;
+color: #fff!important;
 }
 
 .navbar-toggle {

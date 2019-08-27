@@ -2,12 +2,25 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
 class Sidebar extends Component {
+  state = {
+    user: {
+      firstName: '',
+      lastName: ''
+    },
+  }
+
+  componentDidMount = () => {
+    const user = localStorage.getItem('user');
+    this.setState({ user: JSON.parse(user) })
+  };
 
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
 }
 
   render() {
+    const {firstName, lastName} = this.state.user
     return (
         <div className="s-layout__sidebar">
         <a className="s-sidebar__trigger" href="#0">
@@ -19,7 +32,7 @@ class Sidebar extends Component {
               <li>
                 <NavLink  to="/profile">
                       <img className="profile-img" src={require("../../assets/image/user.png")} alt="" />
-                    <p className="profile-name">Julius Ngwu</p> 
+                    <p className="profile-name">{firstName} {lastName}</p> 
                 </NavLink>
               </li>
           

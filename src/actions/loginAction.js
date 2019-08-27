@@ -29,7 +29,6 @@ export const loginUser = newUserDetails => (dispatch) => {
     setAuthToken(token);
     return status;
   }).catch((err) => {
-    console.log(err)
     dispatch(loginUserFailed({ message: err.response.data.error }));
   });
 };

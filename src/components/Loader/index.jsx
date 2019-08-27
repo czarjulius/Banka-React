@@ -24,7 +24,7 @@ export default class Index extends React.Component {
           </span>
         </div>,
       });
-    }, 6000);
+    }, 8000);
   }
 
   reload = () => {

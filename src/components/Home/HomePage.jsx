@@ -2,8 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
-import '../Home/home.scss';
 import '../../index.scss';
+import '../Home/home.scss';
 
 const Homepage = () => (
   <div>
