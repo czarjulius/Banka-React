@@ -24,7 +24,6 @@ export const fetchUserAccounts = (email, newAccountsDetail) => (dispatch) => {
     .then(({ data, status }) => {
     dispatch(fetchUserAccountsSuccess(data.data));
   }).catch((err) => {
-    console.log(err, 'errt')
     dispatch(fetchUserAccountsFailed({ message: err.response.data.error }));
   });
 };
