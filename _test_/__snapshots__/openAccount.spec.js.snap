@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accounts Components Tests Find div on the template 1`] = `ShallowWrapper {}`;
+
+exports[`Accounts Components Tests Find form on the template 1`] = `ShallowWrapper {}`;
+
+exports[`Accounts Components Tests Find option on the template 1`] = `ShallowWrapper {}`;
+
+exports[`Accounts Components Tests Find p on the template 1`] = `ShallowWrapper {}`;
+
+exports[`Accounts Components Tests Find select on the template 1`] = `ShallowWrapper {}`;
+
+exports[`Accounts Components Tests renders Accounts template 1`] = `ShallowWrapper {}`;

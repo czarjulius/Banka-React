@@ -20,7 +20,7 @@ class Sidebar extends Component {
 }
 
   render() {
-    const {firstName, lastName} = this.state.user
+    const { firstName, lastName} = this.state.user
     return (
         <div className="s-layout__sidebar">
         <a className="s-sidebar__trigger" href="#0">
@@ -31,7 +31,7 @@ class Sidebar extends Component {
             <ul>
               <li>
                 <NavLink  to="/profile" className="userprofile">
-                      <img className="profile-img" src={require("../../assets/image/user.png")} alt="" />
+                      <img className="profile-img" src={require('../../assets/image/user.png')} alt="" />
                     <p className="profile-name">{firstName} {lastName}</p> 
                 </NavLink>
               </li>

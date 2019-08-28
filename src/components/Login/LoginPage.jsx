@@ -96,7 +96,7 @@ const mapStateToProps = state => ({
   errors: state.loginReducer.errors,
   articles: state.signupReducer,
 });
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   newUser: data => dispatch(loginUser(data)),
 });
 

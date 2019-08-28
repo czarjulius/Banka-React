@@ -5,8 +5,7 @@ import Dashboard from '../Dashboard/DashboardPage';
 import './profile.scss';
 import { fetchUserAccounts } from '../../actions/fetchUserAccountsAction';
 
-
-class ProfilePage extends Component {
+export class ProfilePage extends Component {
   state = {
     user: {
       firstName: '',
@@ -20,6 +19,7 @@ class ProfilePage extends Component {
     const token = localStorage.getItem('token');
     if (!token) {
       this.props.history.push('/login', {});
+      return;
     }
     const user = JSON.parse(localStorage.getItem('user'));
     this.setState({ user })
@@ -69,9 +69,6 @@ renderAccount(account) {
   render() {
     const { user: { firstName, lastName, phoneNumber, email } } = this.state
     const { userAccounts: { isLoading, accounts } } = this.props;
-    // if(isLoading) {
-    //   return <div>Loaiding...</div>
-    // }
     return (
   <Dashboard header_title="User Dashboard">
     <div className="dasboard-body">
@@ -79,7 +76,7 @@ renderAccount(account) {
         <div className="personal-detail-container">
           <div className="profile-image">
             <div className="profile-pic">
-              <img src={require("../../assets/image//user.png")} alt="" />
+              <img src={require('../../assets/image//user.png')} alt="" />
             </div>
           </div>
           <div className="profile-detail">
@@ -141,7 +138,8 @@ const mapStateToProps = state => ({
   errors: state.accountReducer.errors,
   userAccounts: state.fetchAccountsReducer,
 });
-const mapDispatchToProps = dispatch => ({
+
+export const mapDispatchToProps = dispatch => ({
   fetchAccounts: (email) => dispatch(fetchUserAccounts(email)),
 });
 
