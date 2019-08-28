@@ -24,7 +24,6 @@ export class CreateAccountPage extends React.Component {
   };
 
 onInputChange = ({ target: { name, value } }) => {
-  console.log(name, value)
   this.setState(prevState => ({
     ...prevState,
     form: {
@@ -91,12 +90,12 @@ submitHandler = () => {
 }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   isLoading: state.accountReducer.isLoading,
   errors: state.accountReducer.errors,
   accounts: state.accountReducer,
 });
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   newAccount: data => dispatch(openAccount(data)),
 });
 

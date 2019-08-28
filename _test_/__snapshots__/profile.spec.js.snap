@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile in Components Tests renders Profile In template 1`] = `ReactWrapper {}`;
